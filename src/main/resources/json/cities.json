@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Madrid",
+    "country": "ES",
+    "population": 3182981
+  },
+  {
+  "name": "Barcelona",
+  "country": "ES",
+  "population": 1620809
+  },
+  {
+  "name": "London",
+  "country": "UK",
+  "population": 8787892
+  }
+]
