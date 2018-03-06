@@ -5,7 +5,7 @@ jobs:
     working_directory: ~/dummyjavaapi
 
     docker:
-      - image: circleci/openjdk:8-jdk-browsers
+      - image: java:openjdk-8-alpine
 
     steps:
 
@@ -14,14 +14,14 @@ jobs:
       - restore-cache:
           key: dummyjavaapi-{{ checksum "pom.xml" }}
 
-      - run: mvn dependency:go-offline
+      - run: ~/dummyjavaapi/mvnw dependency:go-offline
 
       - save_cache:
           paths:
             - ~/.m2
           key: dummyjavaapi-{{ checksum "pom.xml" }}
 
-      - run: mvn package
+      - run: ~/dummyjavaapi/mvnw package
 
       - store_test_results:
           path: target/surefire-reports
