@@ -10,4 +10,6 @@ public interface CityService {
     public Collection<City> getCities();
 
     public Optional<City> getCityById(Long id);
+
+    public City saveCity(City city);
 }

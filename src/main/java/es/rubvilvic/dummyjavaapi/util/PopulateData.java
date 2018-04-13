@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Type;
 import java.util.List;
 
 @Component

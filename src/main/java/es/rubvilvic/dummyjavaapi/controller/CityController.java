@@ -5,9 +5,7 @@ import es.rubvilvic.dummyjavaapi.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -28,6 +26,12 @@ public class CityController {
     public ResponseEntity<City> getCityById(@PathVariable("id") Long id){
         Optional<City> city = cityService.getCityById(id);
         return city.isPresent()?new ResponseEntity(city, HttpStatus.OK):new ResponseEntity(HttpStatus.NOT_FOUND);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, path = "/")
+    public ResponseEntity<City> saveCity(@RequestBody City city){
+        City savedCity = cityService.saveCity(city);
+        return new ResponseEntity<>(savedCity, HttpStatus.CREATED);
     }
 
 }
